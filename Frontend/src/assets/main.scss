@@ -1,0 +1,156 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.appBar {
+    position: relative;
+    .toolbar {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+.wrapper {
+    width: auto;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 6rem;
+
+    .paper {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    
+        .addButton {
+            width: 2rem !important;
+            background-color: green;
+            color: white;
+    
+            &:hover {
+                color: white;
+                background: lighten(green, 20);
+            }
+        }
+    
+        .customerList {
+            height: 70vh;
+            width: 100%;
+            overflow-y: scroll;
+            
+            .avatarCell {
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                
+                .avatar {
+                    width: auto;
+                    height: 45px;
+                    border-radius: 10%;
+                }
+            }
+        }
+    }
+}
+
+.uiModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modalBody {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        height: 80vh;
+        background-color: rgba(#000, 0.8);
+        color: linen;
+        border: 2px solid #000;
+        padding: 2rem 4rem 3rem;
+
+        form {
+            padding-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            
+            .inp_row {
+                display: flex;
+
+                .inp_3{
+                    flex: 0.3;
+                }
+                .inp_5{
+                    flex: 0.5;
+                }
+                .inp_7{
+                    flex: 0.7;
+                }
+                .inp_10{
+                    flex: 1;
+                }
+            }
+            
+        }
+
+        .thumbContainer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 16px;
+
+            .thumb {
+                display: inline-flex;
+                border-radius: 2px;
+                border: 1px solid #eaeaea;
+                margin-bottom: 8px;
+                margin-right: 8px;
+                width: auto;
+                height: 200px;
+                padding: 4px;
+                box-sizing: border-box;
+
+                .preview {
+                    display: block;
+                    width: auto;
+                    height: 100%;
+                }
+            }
+        }
+
+        .MuiFormLabel-root {
+            color: rgba(255,255,255, 0.6);
+        }
+
+        .MuiInput-underline {
+            
+            &::before {
+                border-bottom: 2px solid rgba(255,255,255, 0.6);
+            }
+
+            &:focus {
+                border-bottom: 2px solid rgba(255,255,255, 0.9);
+            }
+
+            &:hover:not(.Mui-disabled)::before {
+                border-bottom: 2px solid rgba(255,255,255, 0.9);
+            }
+
+            .MuiInputBase-input {
+                color: rgba(255,255,255, 0.9);
+            }
+
+            &::after {
+                border-bottom: 2px solid rgba(255,255,255, 0.9);
+            }
+
+            
+        }
+
+        
+    }
+}
+
