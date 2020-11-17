@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { connect } from 'react-redux';
-import { addCustomer, updateCustomer, uploadFile } from '../actions/customers';
+import { addCustomer, updateCustomer, uploadFile } from '../redux';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';

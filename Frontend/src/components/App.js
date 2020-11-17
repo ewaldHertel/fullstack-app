@@ -1,6 +1,6 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import { connect } from "react-redux";
-import {getCustomers, deleteCustomer} from '../actions/customers';
+import {getCustomers, deleteCustomer} from '../redux';
 import Footer from './Layout/Footer';
 import CustomModal from './CustomModal';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,19 +13,13 @@ import Button from '@material-ui/core/Button';
 
 import CustomerList from './CustomerList';
 
-
-
-const App = props => {
+const App = ({customers, getCustomers}) => {
     const [open, setOpen] = useState(false);
-    const [customers, setCustomers] = useState([]);
     const [customer, setCustomer] = useState([]);
 
     useEffect(() => {
-        if(customers.length === 0) {
-            props.getCustomers();
-        }
-        setCustomers(props.customers);
-    }, [props]);
+        getCustomers();
+    }, [])
 
     const handleUpdate = (props) => {
         if(props) {
@@ -35,8 +29,7 @@ const App = props => {
     }
 
     const handleDelete = (id) => {
-        console.log(id);
-        props.deleteCustomer(id);
+        deleteCustomer(id);
     }
 
     const handleOpen = () => {
@@ -67,7 +60,7 @@ const App = props => {
                     </Button>
                     
                     <CustomerList 
-                        rows={customers} 
+                        rows={customers}
                         handleUpdate={handleUpdate} 
                         handleDelete={handleDelete}
                     />
@@ -85,8 +78,19 @@ const App = props => {
 }
 
 const mapStateToProps = state => {
-    const customers = state.customers.customers;
-    return {customers};
-};
+    return {
+        customers: state.customers.customers
+    }
+}
 
-export default connect(mapStateToProps, { getCustomers, deleteCustomer })(App)
+const mapDispatchToProps = dispatch => {
+    return {
+        getCustomers: () => dispatch(getCustomers())
+    }
+}
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App);
